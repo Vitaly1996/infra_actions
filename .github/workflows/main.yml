@@ -57,6 +57,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
+            # Выполняет pull образа с DockerHub
             sudo docker pull vitalysergeev/infra_actions
             sudo docker stop $(sudo docker ps -a -q)
             sudo docker run --rm -d -p 5000:5000 vitalysergeev/infra_actions
